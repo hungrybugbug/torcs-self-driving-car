@@ -1,80 +1,52 @@
-Welcome to TORCS
-----------------
-First a big welcome, I hope you will enjoy your ride:-) Do not forget to look
-into the TORCS program menu, it contains very interesting things (e.g. a link
-to the online track generator, track editor, documentation, etc.).
+## Running the TORCS AI Racing Controller
 
-Kind regards
+### Prerequisites
+- Python 3.x installed
+- Required Python packages (install using `pip install -r requirements.txt`)
+- TORCS game installed
 
-Bernhard
+### Step-by-Step Running Instructions
 
-1. Licenses
-2. TORCS Requirements
-3. Running TORCS
-4. Getting Help
-5. Car Setups
-6. Creating Tracks
-7. Robot (AI driver) programming
-8. Official Championships
+1. **Start TORCS Game**
+   - Navigate to your TORCS installation directory
+   - Run `wtorcs.exe`
+   - In the game menu:
+     - Select "Race" → "Quick Race"
+     - Choose a track
+     - Make sure "SCR" is selected as one of the drivers
+     - Click "Start Race"
+   - Wait for the game to load
 
-1. Licenses
------------
-Not the whole TORCS distribution content has the same license. Non free in the
-GPL or Free Art License sense are:
-- The cars in cars/kc-* and cars/pw-* directories, have a look at the specific
-  readme.txt files in those directories (rally and classic cars).
-- The stripe utility. It is free for noncommercial use and is included with
-  permission form Steven Skiena. See http://www.cs.sunysb.edu/~stripe for
-  details. It is used by the accc tool. The accc tool is used for creating
-  cars and advanced tracks.
+2. **Run the AI Controller**
+   - Open a new terminal/command prompt
+   - Navigate to the Aiproject-main directory:
+     ```bash
+     cd path/to/Aiproject-main
+     ```
+   - Run the model client:
+     ```bash
+     python model_client.py
 
-2. TORCS Requirements
----------------------
-You need at least a 600MHz CPU (800MHz recommended), 128 MB RAM (256MB
-recommended) and an OpenGL 1.3 capable graphics card with 32MB RAM (64MB
-recommended). Make sure that you have installed the latest sound and
-graphics drivers.
+3. **Controls During Race**
+   - Press 'M' to toggle between manual and AI control
+   - Press 'S' to start logging data
+   - Press 'E' to stop logging data
+   - Press 'Q' to quit
 
-3. Running TORCS
-----------------
-- Read the "How-To Drive" on www.torcs.org
-  (http://torcs.sourceforge.net/index.php?name=Sections&op=viewarticle&artid=10).
-- Press F1 anytime to get help (do it as well during the ride to learn about
-  the options).
-- Read the FAQ to learn about split screen multiplayer and more.
-- Or watch videos, you find the links on www.torcs.org
+4. **Manual Control Keys**
+   - Arrow Keys:
+     - Up: Accelerate
+     - Down: Brake/Reverse
+     - Left/Right: Steer
+   - Z: Shift up
+   - X: Shift down
 
-4. Getting Help
----------------
-First have a look at the available documentation on www.torcs.org and
-www.berniw.org. If you find no solution for the problem learn in the
-FAQ how and where to report a problem. The best place to get help is the
-torcs-users mailing list, you find the link on www.torcs.org.
+### Troubleshooting
+- If the connection fails, ensure TORCS is running and the race has started
+- Check that the SCR driver is selected in TORCS
+- Verify all required Python packages are installed
 
-5. Car Setups
--------------
-Since 1.3.5 there is a car setup screen integrated in TORCS, if you run
-a practice or qualifying session as human player you can hit the "esc"
-(escape) key, then choose in the menu "setup car, restart", or if the
-track has a pit, make a pit stop and hit there the "setup" button. Your
-setups are stored then in "drivers/human/*.xml". For some information
-about the properties look into the robot tutorial chapter 5
-(http://www.berniw.org/tutorials/robot/ch5/properties.html).
-
-6. Creating Tracks
-------------------
-The track editor is included in the TORCS distribution for Windows. It
-is automatically installed if you select to install the "Trackeditor and Tools".
-Alternatively you can get it from
-http://sourceforge.net/projects/trackeditor or
-http://www.berniw.org/trb/download/trackeditor-0.6.2c.tar.bz2.
-The sources are included in the jars.
-
-7. Robot (AI driver) programming
---------------------------------
-You find a robot programming tutorial on www.berniw.org in the TORCS section.
-Have a look at the FAQ as well.
-
-8. Official Championships
--------------------------
-Visit www.berniw.org/trb for more information.
+### Data Collection
+- Data is temporarily stored in `temp_run.csv`
+- After the session, you'll be prompted to save the data to `model_test_data.csv`
+- Type 'y' to save or 'n' to discard the data
